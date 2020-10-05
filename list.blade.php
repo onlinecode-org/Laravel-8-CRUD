@@ -27,7 +27,7 @@
         @php
             $i = 0;
         @endphp
-        @foreach ($students as $student)
+        @forelse ($students as $student)
             <tr>
                 <td>{{ ++$i }}</td>
                 <td>{{ $student->first_name }}</td>
@@ -43,6 +43,10 @@
                     </form>
                 </td>
             </tr>
-        @endforeach
+        @empty
+        <tr>
+          <td colspan="5"><p class="text-secondary">No Records Found</p></td>
+        </tr>
+        @endforelse
     </table>
 @endsection
